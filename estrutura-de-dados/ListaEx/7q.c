@@ -1,12 +1,13 @@
+//done
 #include <stdio.h>
 
-int main(){
-    float fn[20], sn[20], av[20], tav;
-    int i;
-    fflush(stdout);
+#define TAM 20
 
-    // saber média do aluno
-    for(i = 0; i < 3; i++){
+int main(){
+    float fn[TAM], sn[TAM], av[TAM], tav, bav, lav;
+    int i;
+
+    for(i = 0; i < TAM; i++){
         printf("Digite a sua primeira nota: ");
         scanf("%f", &fn[i]);
 
@@ -14,24 +15,21 @@ int main(){
         scanf("%f", &sn[i]);
 
         av[i] = (fn[i] * 2 + sn[i] * 3) / 5;
-        printf("Sua primeira nota eh %.1f, sua segunda eh %.1f e portanto sua media eh %.1f\n", fn[i], sn[i], av[i]);
+
+        tav += av[i];
+
+        printf("Sua 1ª nota é %.1f, sua 2ª é %.1f e portanto sua média é %.1f\n", fn[i], sn[i], av[i]);
     }
 
-    for(i = 0; i < 3; i++){
-        if(i != 0){
-            av[0] += av[i];
-        }
-    }
+    tav /= TAM;
 
-    printf("%f", av[0]);
-
-    // definir a média da turma
-    for(i = 0; i < 3; i++){
-        tav = tav / 3;
-        if (av[i] > tav){
-            printf("O aluno %d teve resultados acima da media\n", i);
+    system("clear");
+    printf("Média da turma foi: %.1f\n", tav);
+    for(i = 0; i < TAM; i++){
+        if(av[i] > tav){
+            printf("O %dº aluno teve resultados acima da média: %.1f\n", i+1, av[i]);
         }else{
-            printf("O aluno %d teve resultados abaixo da media\n", i);
+            printf("O %dº aluno teve resultados abaixo da média: %.1f\n", i+1, av[i]);
         }
     }
 
