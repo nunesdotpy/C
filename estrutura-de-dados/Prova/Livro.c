@@ -33,9 +33,6 @@ int ret[QTD];
 int main(){
     LIVRO biblioteca[QTD];
 	menu();
-	
-	
-
 }
 
 int menu(void){
